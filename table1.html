@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Processed_Data</th>
+                <th>Case_Category</th>
+                <th>Case_Issues</th>
+                <th>Data_Type</th>
+                <th>id</th>
+                <th>Original_text</th>
+            </tr>
+        </thead>
+
+    </table>
+    <script >
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "processing": true,
+         "serverSide": true,
+
+         "ajax": {
+            "url": "http://localhost:5000/api/data",
+            "dataSrc": ""
+         },
+         "columns": [
+            { "data": "Processed_Data" },
+            { "data": "Case_Category" },
+            { "data": "Case_Issues" },
+            { "data": "Data_Type" },
+            { "data": "id" },
+            { "data": "Original_text" }
+        ],
+        "order": [[ 4, 'asc' ]]
+
+    } );
+} );
+</script>
+
+</body>
+
+
+</html>
